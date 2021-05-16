@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>HPBD</title>
+  <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen" />
+
+  <script>
+    if (typeof $pdj == 'undefined') {
+      document.write('<' + 'script'); document.write(' language="javascript"'); document.write(' type="text/javascript"'); document.write(' src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">'); document.write('</' + 'script' + '>')
+    }
+  </script>
+  <script>
+    if (typeof $pdj == 'undefined') {
+      var $pdj = jQuery.noConflict()
+    } if (!image_urls) {
+      var image_urls = Array()
+    } if (!flash_urls) {
+      var flash_urls = Array()
+    }
+    image_urls['corazon'] = "http://lh6.googleusercontent.com/-7-WYEBOVd7c/TzMiej4AFcI/AAAAAAAACLc/w2Fn6N9jwIU/s32/heart.png";
+    $pdj(document).ready(function () {
+      var c = $pdj(window).width();
+      var d = $pdj(window).height();
+      var e = function (a, b) {
+        return Math.round(a + (Math.random() * (b - a)))
+      };
+      var f = function (a) {
+        setTimeout(function () {
+
+          a.css({ left: e(0, c) + 'px', top: '-30px', display: 'block', opacity: '0.' + e(10, 100) }).animate({
+            top: (d - 10) + 'px'
+          },
+            e(8500, 10000), function () {
+              $pdj(this).fadeOut('slow', function () {
+                f(a)
+              })
+            })
+        }, e(1, 9000))
+      }; $pdj('<div></div>').attr('id', 'corazonDiv').css({ position: 'fixed', width: (c - 20) + 'px', height: '1px', left: '0px', top: '-5px', display: 'block' }).appendTo('body'); for (var i = 1; i <= 15; i++) { var g = $pdj('<img/>').attr('src', image_urls['corazon']).css({ position: 'absolute', left: e(0, c) + 'px', top: '-30px', display: 'block', opacity: '0.' + e(10, 100), 'margin-left': 0 }).addClass('corazonDrop').appendTo('#corazonDiv'); f(g); g = null }; var h = 0; var j = 0; $pdj(window).resize(function () { c = $pdj(window).width(); d = $pdj(window).height() })
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      var button = $('.script');
+      button.click(function () {
+        alert("login successfully");
+      });
+      button.css('background-color', 'yellow');
+    });
+  </script>
+  <script type="text/javascript" charset="utf-8">
+    function hasClassName(inElement, inClassName) {
+      var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+      return regExp.test(inElement.className);
+    }
+
+    function addClassName(inElement, inClassName) {
+      if (!hasClassName(inElement, inClassName))
+        inElement.className = [inElement.className, inClassName].join(' ');
+    }
+
+    function removeClassName(inElement, inClassName) {
+      if (hasClassName(inElement, inClassName)) {
+        var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+        var curClasses = inElement.className;
+        inElement.className = curClasses.replace(regExp, ' ');
+      }
+    }
+
+    function toggleClassName(inElement, inClassName) {
+      if (hasClassName(inElement, inClassName))
+        removeClassName(inElement, inClassName);
+      else
+        addClassName(inElement, inClassName);
+    }
+
+    function toggleShape() {
+      var shape = document.getElementById('shape');
+      if (hasClassName(shape, 'ring')) {
+        removeClassName(shape, 'ring');
+        addClassName(shape, 'cube');
+      } else {
+        removeClassName(shape, 'cube');
+        addClassName(shape, 'ring');
+      }
+
+      var stage = document.getElementById('stage');
+      if (hasClassName(shape, 'ring'))
+        stage.style.webkitTransform = 'translateZ(-200px)';
+      else
+        stage.style.webkitTransform = '';
+    }
+  </script>
+</head>
+
+<body>
+
+
+  <div id="container" style="width: 100%;height: 100%;background: #ffc0cb73;">
+    <marquee behavior="left" direction="">
+      <p style="font-size: 20px; font-weight: bold;">Design by:Dung IT: Tập thể lớp :<span
+          style="color: dodgerBlue;">Chúc cô luôn mạnh khỏe,trẻ trung để truyền đạt kiến thức cho các bạn học sinh ,
+          luôn vui vẻ với mọi người tất cả mọi thứ. ^^!Mỗi ngày đến trường là một niềm vui^^! và thành công trong cuộc
+          sống ^^!</span></p>
+    </marquee>
+    <div class="controls">
+      <div style="text-align: center;"><button class="nut-chuyen-hieu-ung" onclick="toggleShape()">Click vào đây đi!</button></div>
+    </div>
+    <audio controls autoplay Loop>
+      <source src="./music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="stage">
+      <div id="shape" class="cube backfaces">
+        <div class="plane one"></div>
+        <div class="plane two"></div>
+        <div class="plane three"></div>
+        <div class="plane four"></div>
+        <div class="plane five"></div>
+        <div class="plane six"></div>
+        <div class="plane seven"></div>
+        <div class="plane eight"></div>
+        <div class="plane nine"></div>
+        <div class="plane ten"></div>
+        <div class="plane eleven"></div>
+        <div class="plane twelve"></div>
+      </div>
+    </div>
+
+</body>
+
+</html>
