@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>HPBD ThaoPhuong</title>
+  <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen" />
+  <link rel="shortcut icon" type="images/x-icon" href="./css/images/8.ico">
+</head>
+
+<body>
+  <div id="container" style="width: 100%;height: 100%;background: -webkit-linear-gradient(90deg, #ff002d, #ff002a00);">
+    <!-- #ffc0cb73 -->
+    <marquee behavior="left" direction="" scrollamount="10">
+      <p style="font-size: 20px; font-weight: bold;">
+        <img src="./css/images/13.ico" alt="" style="width: 25px; height: 25px;">
+        <span style="color: #00c4dd;">Chúc mừng sinh nhật Thảo 17/11/2000, chúc em luôn mạnh khỏe, gặp nhiều may mắn và thành công trong cuộc sống !!!</span>
+        <img src="./css/images/13.ico" alt="" style="width: 25px; height: 25px;">
+        <span style="color: #00000095;">&nbsp; Design by: Trần Văn Dũng</span> 
+        <img src="./css/images/Gift_Icon_64.png" alt="" style="width: 45px; height: 45px;">
+        <img src="./css/images/Gift_Icon_64.png" alt="" style="width: 45px; height: 45px;">
+        <img src="./css/images/Gift_Icon_64.png" alt="" style="width: 45px; height: 45px;">
+      </p>
+    </marquee>
+    <div class="controls" style="text-align: center;">
+      <div>
+        <audio controls autoplay loop>
+          <source src="./music.mp3" type="audio/mp3">
+        </audio>
+      </div>
+      <!-- <div><button class="nut-chuyen-hieu-ung" onclick="toggleShape()">Đổi hiệu ứng</button></div> -->
+    </div>
+    <div id="stage">
+      <div id="shape" class="cube backfaces">
+        <div class="plane one"></div>
+        <div class="plane two"></div>
+        <div class="plane three"></div>
+        <div class="plane four"></div>
+        <div class="plane five"></div>
+        <div class="plane six"></div>
+        <div class="plane seven"></div>
+        <div class="plane eight"></div>
+        <div class="plane nine"></div>
+        <div class="plane ten"></div>
+        <div class="plane eleven"></div>
+        <div class="plane twelve"></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+    <script>
+      if (typeof $pdj == 'undefined') {
+        document.write('<' + 'script'); document.write(' language="javascript"'); document.write(' type="text/javascript"'); document.write(' src="./js/jquery-3.5.1.min.js">'); document.write('</' + 'script' + '>')
+      }
+    </script>
+    <script>
+      if (typeof $pdj == 'undefined') {
+        var $pdj = jQuery.noConflict()
+      } if (!image_urls) {
+        var image_urls = Array()
+      } if (!flash_urls) {
+        var flash_urls = Array()
+      }
+      image_urls['corazon'] = "./css/images/heart.png";
+      $pdj(document).ready(function () {
+        var c = $pdj(window).width();
+        var d = $pdj(window).height();
+        var e = function (a, b) {
+          return Math.round(a + (Math.random() * (b - a)))
+        };
+        var f = function (a) {
+          setTimeout(function () {
+  
+            a.css({ left: e(0, c) + 'px', top: '-30px', display: 'block', opacity: '0.' + e(10, 100) }).animate({
+              top: (d - 10) + 'px'
+            },
+              e(8500, 10000), function () {
+                $pdj(this).fadeOut('slow', function () {
+                  f(a)
+                })
+              })
+          }, e(1, 9000))
+        }; $pdj('<div></div>').attr('id', 'corazonDiv').css({ position: 'fixed', width: (c - 20) + 'px', height: '1px', left: '0px', top: '-5px', display: 'block' }).appendTo('body'); for (var i = 1; i <= 15; i++) { var g = $pdj('<img/>').attr('src', image_urls['corazon']).css({ position: 'absolute', left: e(0, c) + 'px', top: '-30px', display: 'block', opacity: '0.' + e(10, 100), 'margin-left': 0 }).addClass('corazonDrop').appendTo('#corazonDiv'); f(g); g = null }; var h = 0; var j = 0; $pdj(window).resize(function () { c = $pdj(window).width(); d = $pdj(window).height() })
+      });
+    </script>
+    <script type="text/javascript" charset="utf-8">
+      function hasClassName(inElement, inClassName) {
+        var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+        return regExp.test(inElement.className);
+      }
+  
+      function addClassName(inElement, inClassName) {
+        if (!hasClassName(inElement, inClassName))
+          inElement.className = [inElement.className, inClassName].join(' ');
+      }
+  
+      function removeClassName(inElement, inClassName) {
+        if (hasClassName(inElement, inClassName)) {
+          var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+          var curClasses = inElement.className;
+          inElement.className = curClasses.replace(regExp, ' ');
+        }
+      }
+  
+      function toggleClassName(inElement, inClassName) {
+        if (hasClassName(inElement, inClassName))
+          removeClassName(inElement, inClassName);
+        else
+          addClassName(inElement, inClassName);
+      }
+  
+      function toggleShape() {
+        var shape = document.getElementById('shape');
+        if (hasClassName(shape, 'ring')) {
+          removeClassName(shape, 'ring');
+          addClassName(shape, 'cube');
+        } else {
+          removeClassName(shape, 'cube');
+          addClassName(shape, 'ring');
+        }
+  
+        var stage = document.getElementById('stage');
+        if (hasClassName(shape, 'ring'))
+          stage.style.webkitTransform = 'translateZ(-200px)';
+        else
+          stage.style.webkitTransform = '';
+      }
+      setInterval(toggleShape, 12000);
+    </script>
+</body>
+
+</html>
